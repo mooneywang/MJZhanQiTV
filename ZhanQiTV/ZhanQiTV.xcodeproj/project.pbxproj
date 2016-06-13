@@ -31,6 +31,7 @@
 		CCC4ECD51D07D3C300B6EF80 /* ZQBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBaseViewController.m; sourceTree = "<group>"; };
 		CCC4ECDB1D07D45F00B6EF80 /* ZQHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQHomeViewController.h; sourceTree = "<group>"; };
 		CCC4ECDC1D07D45F00B6EF80 /* ZQHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQHomeViewController.m; sourceTree = "<group>"; };
+		CCF97C8E1D0D04FE00BD9DCC /* ZQConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +85,7 @@
 		CCC4ECC91D07D28000B6EF80 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CCF97C8D1D0D04E000BD9DCC /* Constants */,
 				CCC4ECCA1D07D28000B6EF80 /* Main */,
 				CCC4ECD71D07D44600B6EF80 /* Home */,
 			);
@@ -158,6 +160,14 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CCF97C8D1D0D04E000BD9DCC /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CCF97C8E1D0D04FE00BD9DCC /* ZQConstants.h */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +378,7 @@
 				CCC4ECC81D07CC0700B6EF80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

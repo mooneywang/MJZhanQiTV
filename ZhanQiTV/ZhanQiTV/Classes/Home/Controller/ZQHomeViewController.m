@@ -7,31 +7,51 @@
 //
 
 #import "ZQHomeViewController.h"
+#import "ZQConstants.h"
 
-@interface ZQHomeViewController ()
+@interface ZQHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
 
 @implementation ZQHomeViewController
 
+float const kMinimumLineSpacing = 10;
+float const kMinimumInteritemSpacing = 10;
+float const kCellBaseH = 135;
+static NSString *const homeCellId = @"homeCellId";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self setupCollectionView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupCollectionView {
+    CGFloat kDeviceFactor = kScreenH >= 568 ? 1.0 : kScreenH / 568.0;
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.itemSize = CGSizeMake((kScreenW - 3 * kMinimumInteritemSpacing) * 0.5, kCellBaseH * kDeviceFactor);
+    flowLayout.minimumLineSpacing = kMinimumLineSpacing;
+    flowLayout.minimumInteritemSpacing = kMinimumInteritemSpacing;
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kMarginTopH, kScreenW, kScreenH - kMarginTopH - kTabBarH) collectionViewLayout:flowLayout];
+    _collectionView.backgroundColor = kGlobalBackgroundColor;
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
+    [self.view addSubview:_collectionView];
+    
+    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:homeCellId];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 20;
 }
-*/
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:homeCellId forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor redColor];
+    return cell;
+}
 
 @end
