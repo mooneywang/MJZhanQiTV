@@ -10,6 +10,8 @@
 		9A826867E7CFA4A9DCD88667 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8F43C532DC4C9B9CACB14E /* libPods.a */; };
 		CC2177851D0F93C0001BA6D4 /* ZQAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2177841D0F93C0001BA6D4 /* ZQAdModel.m */; };
 		CC2177891D0FA09D001BA6D4 /* ZQNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2177881D0FA09D001BA6D4 /* ZQNetworkManager.m */; };
+		CC21778F1D0FEF2A001BA6D4 /* ZQFirstSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CC21778E1D0FEF2A001BA6D4 /* ZQFirstSectionHeader.m */; };
+		CC2177951D0FF1E9001BA6D4 /* ZQPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2177941D0FF1E9001BA6D4 /* ZQPictureView.m */; };
 		CC88A8371D0E69D600C32490 /* ZQSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88A8361D0E69D600C32490 /* ZQSectionHeader.m */; };
 		CC88A83A1D0E94FA00C32490 /* ZQAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88A8391D0E94FA00C32490 /* ZQAPI.m */; };
 		CCC4ECB41D07CC0700B6EF80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC4ECB31D07CC0700B6EF80 /* main.m */; };
@@ -29,6 +31,10 @@
 		CC2177841D0F93C0001BA6D4 /* ZQAdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQAdModel.m; sourceTree = "<group>"; };
 		CC2177871D0FA09D001BA6D4 /* ZQNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQNetworkManager.h; sourceTree = "<group>"; };
 		CC2177881D0FA09D001BA6D4 /* ZQNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQNetworkManager.m; sourceTree = "<group>"; };
+		CC21778D1D0FEF2A001BA6D4 /* ZQFirstSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQFirstSectionHeader.h; sourceTree = "<group>"; };
+		CC21778E1D0FEF2A001BA6D4 /* ZQFirstSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQFirstSectionHeader.m; sourceTree = "<group>"; };
+		CC2177931D0FF1E9001BA6D4 /* ZQPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPictureView.h; sourceTree = "<group>"; };
+		CC2177941D0FF1E9001BA6D4 /* ZQPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPictureView.m; sourceTree = "<group>"; };
 		CC88A8351D0E69D600C32490 /* ZQSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQSectionHeader.h; sourceTree = "<group>"; };
 		CC88A8361D0E69D600C32490 /* ZQSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQSectionHeader.m; sourceTree = "<group>"; };
 		CC88A8381D0E94FA00C32490 /* ZQAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAPI.h; sourceTree = "<group>"; };
@@ -208,6 +214,10 @@
 			children = (
 				CC88A8351D0E69D600C32490 /* ZQSectionHeader.h */,
 				CC88A8361D0E69D600C32490 /* ZQSectionHeader.m */,
+				CC21778D1D0FEF2A001BA6D4 /* ZQFirstSectionHeader.h */,
+				CC21778E1D0FEF2A001BA6D4 /* ZQFirstSectionHeader.m */,
+				CC2177931D0FF1E9001BA6D4 /* ZQPictureView.h */,
+				CC2177941D0FF1E9001BA6D4 /* ZQPictureView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +360,8 @@
 				CCC4ECD61D07D3C300B6EF80 /* ZQBaseViewController.m in Sources */,
 				CCC4ECD31D07D2E500B6EF80 /* ZQNavigationController.m in Sources */,
 				CCC4ECB41D07CC0700B6EF80 /* main.m in Sources */,
+				CC2177951D0FF1E9001BA6D4 /* ZQPictureView.m in Sources */,
+				CC21778F1D0FEF2A001BA6D4 /* ZQFirstSectionHeader.m in Sources */,
 				CC88A83A1D0E94FA00C32490 /* ZQAPI.m in Sources */,
 				CC2177891D0FA09D001BA6D4 /* ZQNetworkManager.m in Sources */,
 			);

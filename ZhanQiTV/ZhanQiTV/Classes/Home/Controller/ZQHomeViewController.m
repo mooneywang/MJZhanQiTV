@@ -9,7 +9,11 @@
 #import "ZQHomeViewController.h"
 #import "ZQConstants.h"
 #import "ZQAPI.h"
+#import "ZQFirstSectionHeader.h"
 #import "ZQSectionHeader.h"
+#import "ZQNetworkManager.h"
+#import "ZQAdModel.h"
+#import <MBProgressHUD.h>
 
 @interface ZQHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -33,6 +37,7 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupCollectionView];
+    [self getAdModel];
 }
 
 #pragma mark - private methods
@@ -52,7 +57,28 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     [self.view addSubview:_collectionView];
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:homeCellId];
     [_collectionView registerClass:[ZQSectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeSectionHeaderId];
-    [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeFirstSectionHeaderId];
+    [_collectionView registerClass:[ZQFirstSectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeFirstSectionHeaderId];
+}
+
+- (void)getAdModel {
+    ZQNetworkManager *manager = [ZQNetworkManager sharedManager];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [manager get:kADUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *responseDict = (NSDictionary *)responseObject;
+        AdSuperModel *adSuperModel = [[AdSuperModel alloc] initWithDictionary:responseDict error:nil];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if ([adSuperModel.code intValue] == 0) {
+            [_collectionView reloadData];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = error.localizedDescription;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    }];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -76,12 +102,9 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     UICollectionReusableView *reusableView = nil;
     if (indexPath.section == 0) {
         reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:homeFirstSectionHeaderId forIndexPath:indexPath];
-        reusableView.backgroundColor = [UIColor colorWithRed:0.000 green:1.000 blue:0.744 alpha:1.000];
     }else {
         reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:homeSectionHeaderId forIndexPath:indexPath];
     }
-    
-    
     return reusableView;
 }
 
