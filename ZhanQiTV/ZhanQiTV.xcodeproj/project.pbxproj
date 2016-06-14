@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9A826867E7CFA4A9DCD88667 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8F43C532DC4C9B9CACB14E /* libPods.a */; };
+		CC2177851D0F93C0001BA6D4 /* ZQAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2177841D0F93C0001BA6D4 /* ZQAdModel.m */; };
+		CC2177891D0FA09D001BA6D4 /* ZQNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2177881D0FA09D001BA6D4 /* ZQNetworkManager.m */; };
 		CC88A8371D0E69D600C32490 /* ZQSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88A8361D0E69D600C32490 /* ZQSectionHeader.m */; };
 		CC88A83A1D0E94FA00C32490 /* ZQAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88A8391D0E94FA00C32490 /* ZQAPI.m */; };
 		CCC4ECB41D07CC0700B6EF80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC4ECB31D07CC0700B6EF80 /* main.m */; };
@@ -23,6 +25,10 @@
 		2B8F43C532DC4C9B9CACB14E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D6FF1BE7F7DFBE1398E004C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		73E260742C0DCC5B615CB7F3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CC2177831D0F93C0001BA6D4 /* ZQAdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAdModel.h; sourceTree = "<group>"; };
+		CC2177841D0F93C0001BA6D4 /* ZQAdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQAdModel.m; sourceTree = "<group>"; };
+		CC2177871D0FA09D001BA6D4 /* ZQNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQNetworkManager.h; sourceTree = "<group>"; };
+		CC2177881D0FA09D001BA6D4 /* ZQNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQNetworkManager.m; sourceTree = "<group>"; };
 		CC88A8351D0E69D600C32490 /* ZQSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQSectionHeader.h; sourceTree = "<group>"; };
 		CC88A8361D0E69D600C32490 /* ZQSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQSectionHeader.m; sourceTree = "<group>"; };
 		CC88A8381D0E94FA00C32490 /* ZQAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAPI.h; sourceTree = "<group>"; };
@@ -73,11 +79,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CC88A83B1D0E9BDC00C32490 /* NetworkHelper */ = {
+		CC2177861D0FA065001BA6D4 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				CC2177871D0FA09D001BA6D4 /* ZQNetworkManager.h */,
+				CC2177881D0FA09D001BA6D4 /* ZQNetworkManager.m */,
 			);
-			path = NetworkHelper;
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 		CCC4ECA61D07CC0700B6EF80 = {
@@ -122,7 +130,7 @@
 		CCC4ECC91D07D28000B6EF80 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CC88A83B1D0E9BDC00C32490 /* NetworkHelper */,
+				CC2177861D0FA065001BA6D4 /* NetworkManager */,
 				CCF97C8D1D0D04E000BD9DCC /* Constants */,
 				CCC4ECCA1D07D28000B6EF80 /* Main */,
 				CCC4ECD71D07D44600B6EF80 /* Home */,
@@ -189,6 +197,8 @@
 		CCC4ECD91D07D44600B6EF80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CC2177831D0F93C0001BA6D4 /* ZQAdModel.h */,
+				CC2177841D0F93C0001BA6D4 /* ZQAdModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -334,12 +344,14 @@
 			files = (
 				CC88A8371D0E69D600C32490 /* ZQSectionHeader.m in Sources */,
 				CCC4ECB71D07CC0700B6EF80 /* AppDelegate.m in Sources */,
+				CC2177851D0F93C0001BA6D4 /* ZQAdModel.m in Sources */,
 				CCC4ECD01D07D2B200B6EF80 /* ZQTabBarController.m in Sources */,
 				CCC4ECDD1D07D45F00B6EF80 /* ZQHomeViewController.m in Sources */,
 				CCC4ECD61D07D3C300B6EF80 /* ZQBaseViewController.m in Sources */,
 				CCC4ECD31D07D2E500B6EF80 /* ZQNavigationController.m in Sources */,
 				CCC4ECB41D07CC0700B6EF80 /* main.m in Sources */,
 				CC88A83A1D0E94FA00C32490 /* ZQAPI.m in Sources */,
+				CC2177891D0FA09D001BA6D4 /* ZQNetworkManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
