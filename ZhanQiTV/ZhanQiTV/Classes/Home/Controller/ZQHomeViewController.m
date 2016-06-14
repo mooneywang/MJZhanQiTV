@@ -21,7 +21,9 @@
 
 @end
 
-@implementation ZQHomeViewController
+@implementation ZQHomeViewController {
+    AdSuperModel *_adSuperModel;
+}
 
 float const kMinimumLineSpacing = 10;
 float const kMinimumInteritemSpacing = 10;
@@ -39,6 +41,8 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     [self setupCollectionView];
     [self getAdModel];
 }
+
+#pragma getter & setter
 
 #pragma mark - private methods
 
@@ -65,9 +69,9 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [manager get:kADUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *responseDict = (NSDictionary *)responseObject;
-        AdSuperModel *adSuperModel = [[AdSuperModel alloc] initWithDictionary:responseDict error:nil];
+        _adSuperModel = [[AdSuperModel alloc] initWithDictionary:responseDict error:nil];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if ([adSuperModel.code intValue] == 0) {
+        if ([_adSuperModel.code intValue] == 0) {
             [_collectionView reloadData];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -102,6 +106,8 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     UICollectionReusableView *reusableView = nil;
     if (indexPath.section == 0) {
         reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:homeFirstSectionHeaderId forIndexPath:indexPath];
+        ZQFirstSectionHeader *firstSectionHeader = (ZQFirstSectionHeader *)reusableView;
+        firstSectionHeader.adModelList = _adSuperModel.data;
     }else {
         reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:homeSectionHeaderId forIndexPath:indexPath];
     }
