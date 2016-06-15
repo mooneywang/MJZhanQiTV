@@ -514,11 +514,58 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"$(SRCROOT)/IJKMediaFramework.framework/Headers\"/**",
+				);
 				INFOPLIST_FILE = ZhanQiTV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ijkplayer/ios/build/ffmpeg-arm64/output/lib",
+					"$(PROJECT_DIR)/ijkplayer/ios/build/ffmpeg-armv7/output/lib",
+					"$(PROJECT_DIR)/ijkplayer/ios/build/ffmpeg-i386/output/lib",
+					"$(PROJECT_DIR)/ijkplayer/ios/build/ffmpeg-x86_64/output/lib",
+					"$(PROJECT_DIR)/ijkplayer/ios/build/universal/lib",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libavcodec",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libavfilter",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libavformat",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libavutil",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libswresample",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libswscale",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libavcodec",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libavfilter",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libavformat",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libavutil",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libswresample",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libswscale",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libavcodec",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libavfilter",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libavformat",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libavutil",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libswresample",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libswscale",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libavcodec",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libavfilter",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libavformat",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libavutil",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libswresample",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libswscale",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = mooney.wang.ZhanQiTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/IJKMediaFramework.framework/Headers\"/**";
 			};
 			name = Debug;
 		};
@@ -528,11 +575,58 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"$(SRCROOT)/IJKMediaFramework.framework/Headers\"/**",
+				);
 				INFOPLIST_FILE = ZhanQiTV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ijkplayer/ios/build/ffmpeg-arm64/output/lib",
+					"$(PROJECT_DIR)/ijkplayer/ios/build/ffmpeg-armv7/output/lib",
+					"$(PROJECT_DIR)/ijkplayer/ios/build/ffmpeg-i386/output/lib",
+					"$(PROJECT_DIR)/ijkplayer/ios/build/ffmpeg-x86_64/output/lib",
+					"$(PROJECT_DIR)/ijkplayer/ios/build/universal/lib",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libavcodec",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libavfilter",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libavformat",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libavutil",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libswresample",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-arm64/libswscale",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libavcodec",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libavfilter",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libavformat",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libavutil",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libswresample",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-armv7/libswscale",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libavcodec",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libavfilter",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libavformat",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libavutil",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libswresample",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-i386/libswscale",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libavcodec",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libavfilter",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libavformat",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libavutil",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libswresample",
+					"$(PROJECT_DIR)/ijkplayer/ios/ffmpeg-x86_64/libswscale",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = mooney.wang.ZhanQiTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/IJKMediaFramework.framework/Headers\"/**";
 			};
 			name = Release;
 		};
