@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class HomeListModel;
+
 @interface ZQSectionHeader : UICollectionReusableView
+
+@property (nonatomic, strong) HomeListModel *homeListModel;
 
 @end

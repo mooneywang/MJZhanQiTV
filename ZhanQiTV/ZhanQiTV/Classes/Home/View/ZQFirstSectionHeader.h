@@ -8,7 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class ZQFirstSectionHeader;
+@class ZQPictureView;
+
+@protocol ZQFirstSectionHeaderProtocol <NSObject>
+
+@optional
+- (void)firstSectionHeader:(ZQFirstSectionHeader *)firstSectionHeader didClickedPictureView:(ZQPictureView *)pictureView;
+
+@end
+
 @interface ZQFirstSectionHeader : UICollectionReusableView
+
+@property (nonatomic, weak) id<ZQFirstSectionHeaderProtocol> delegate;
 
 @property (nonatomic, strong) NSArray *adModelList;
 

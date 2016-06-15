@@ -10,5 +10,5 @@
 #import <UIKit/UIKit.h>
 
 UIKIT_EXTERN NSString *const kADUrl;
-
+UIKIT_EXTERN NSString *const kHomeUrl;
 

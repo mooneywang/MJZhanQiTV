@@ -11,11 +11,14 @@
 #import "ZQAPI.h"
 #import "ZQFirstSectionHeader.h"
 #import "ZQSectionHeader.h"
+#import "ZQHomeCell.h"
 #import "ZQNetworkManager.h"
 #import "ZQAdModel.h"
+#import "ZQHomeListModel.h"
 #import <MBProgressHUD.h>
+#import "ZQRoomViewController.h"
 
-@interface ZQHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface ZQHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ZQFirstSectionHeaderProtocol>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -23,6 +26,7 @@
 
 @implementation ZQHomeViewController {
     AdSuperModel *_adSuperModel;
+    HomeSuperListModel *_homeSuperListModel;
 }
 
 float const kMinimumLineSpacing = 10;
@@ -40,9 +44,8 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupCollectionView];
     [self getAdModel];
+    [self getHomeListModel];
 }
-
-#pragma getter & setter
 
 #pragma mark - private methods
 
@@ -59,27 +62,42 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     [self.view addSubview:_collectionView];
-    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:homeCellId];
+    [_collectionView registerClass:[ZQHomeCell class] forCellWithReuseIdentifier:homeCellId];
     [_collectionView registerClass:[ZQSectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeSectionHeaderId];
     [_collectionView registerClass:[ZQFirstSectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeFirstSectionHeaderId];
 }
 
 - (void)getAdModel {
     ZQNetworkManager *manager = [ZQNetworkManager sharedManager];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [manager get:kADUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *responseDict = (NSDictionary *)responseObject;
         _adSuperModel = [[AdSuperModel alloc] initWithDictionary:responseDict error:nil];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if ([_adSuperModel.code intValue] == 0) {
             [_collectionView reloadData];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
         hud.labelText = error.localizedDescription;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    }];
+}
+
+- (void)getHomeListModel {
+    ZQNetworkManager *manager = [ZQNetworkManager sharedManager];
+    [manager get:kHomeUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *responseDict = (NSDictionary *)responseObject;
+        _homeSuperListModel = [[HomeSuperListModel alloc] initWithDictionary:responseDict error:nil];
+        if ([_adSuperModel.code intValue] == 0) {
+            [_collectionView reloadData];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = error.localizedDescription;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     }];
@@ -88,17 +106,22 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 3;
+    return _homeSuperListModel.data.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    if (section == 0) {
+        return 0;
+    }
+    HomeListModel *homeListModel = _homeSuperListModel.data[section - 1];
+    return homeListModel.lists.count;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:homeCellId forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithRed:1.000 green:0.700 blue:0.722 alpha:1.000];
+    ZQHomeCell *cell = (ZQHomeCell *)[collectionView dequeueReusableCellWithReuseIdentifier:homeCellId forIndexPath:indexPath];
+    HomeListModel *homeListModel = _homeSuperListModel.data[indexPath.section - 1];
+    cell.list = homeListModel.lists[indexPath.row];
     return cell;
 }
 
@@ -107,9 +130,12 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     if (indexPath.section == 0) {
         reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:homeFirstSectionHeaderId forIndexPath:indexPath];
         ZQFirstSectionHeader *firstSectionHeader = (ZQFirstSectionHeader *)reusableView;
+        firstSectionHeader.delegate = self;
         firstSectionHeader.adModelList = _adSuperModel.data;
     }else {
         reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:homeSectionHeaderId forIndexPath:indexPath];
+        ZQSectionHeader *sectionHeader = (ZQSectionHeader *)reusableView;
+        sectionHeader.homeListModel = _homeSuperListModel.data[indexPath.section - 1];
     }
     return reusableView;
 }
@@ -122,6 +148,20 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     }else {
         return CGSizeMake(kScreenW, 50 * kDeviceFactor);
     }
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ZQRoomViewController *roomVCtrl = [[ZQRoomViewController alloc] init];
+    [self.navigationController pushViewController:roomVCtrl animated:YES];
+}
+
+#pragma mark - ZQFirstSectionHeaderProtocol
+
+- (void)firstSectionHeader:(ZQFirstSectionHeader *)firstSectionHeader didClickedPictureView:(ZQPictureView *)pictureView {
+    ZQRoomViewController *roomVCtrl = [[ZQRoomViewController alloc] init];
+    [self.navigationController pushViewController:roomVCtrl animated:YES];
 }
 
 @end

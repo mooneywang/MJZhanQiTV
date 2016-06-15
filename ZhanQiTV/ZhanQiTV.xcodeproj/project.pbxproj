@@ -21,6 +21,10 @@
 		CCC4ECD31D07D2E500B6EF80 /* ZQNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC4ECD21D07D2E500B6EF80 /* ZQNavigationController.m */; };
 		CCC4ECD61D07D3C300B6EF80 /* ZQBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC4ECD51D07D3C300B6EF80 /* ZQBaseViewController.m */; };
 		CCC4ECDD1D07D45F00B6EF80 /* ZQHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC4ECDC1D07D45F00B6EF80 /* ZQHomeViewController.m */; };
+		CCDE6D4C1D10E3BF0043C52D /* ZQLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6D4B1D10E3BF0043C52D /* ZQLiveViewController.m */; };
+		CCDE6D4F1D10EFB10043C52D /* ZQHomeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6D4E1D10EFB10043C52D /* ZQHomeListModel.m */; };
+		CCDE6D521D110AA50043C52D /* ZQHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6D511D110AA50043C52D /* ZQHomeCell.m */; };
+		CCDE6D591D111BFE0043C52D /* ZQRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6D581D111BFE0043C52D /* ZQRoomViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +57,14 @@
 		CCC4ECD51D07D3C300B6EF80 /* ZQBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBaseViewController.m; sourceTree = "<group>"; };
 		CCC4ECDB1D07D45F00B6EF80 /* ZQHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQHomeViewController.h; sourceTree = "<group>"; };
 		CCC4ECDC1D07D45F00B6EF80 /* ZQHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQHomeViewController.m; sourceTree = "<group>"; };
+		CCDE6D4A1D10E3BF0043C52D /* ZQLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQLiveViewController.h; sourceTree = "<group>"; };
+		CCDE6D4B1D10E3BF0043C52D /* ZQLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQLiveViewController.m; sourceTree = "<group>"; };
+		CCDE6D4D1D10EFB10043C52D /* ZQHomeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQHomeListModel.h; sourceTree = "<group>"; };
+		CCDE6D4E1D10EFB10043C52D /* ZQHomeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQHomeListModel.m; sourceTree = "<group>"; };
+		CCDE6D501D110AA50043C52D /* ZQHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQHomeCell.h; sourceTree = "<group>"; };
+		CCDE6D511D110AA50043C52D /* ZQHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQHomeCell.m; sourceTree = "<group>"; };
+		CCDE6D571D111BFE0043C52D /* ZQRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQRoomViewController.h; sourceTree = "<group>"; };
+		CCDE6D581D111BFE0043C52D /* ZQRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQRoomViewController.m; sourceTree = "<group>"; };
 		CCF97C8E1D0D04FE00BD9DCC /* ZQConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +151,7 @@
 				CC2177861D0FA065001BA6D4 /* NetworkManager */,
 				CCF97C8D1D0D04E000BD9DCC /* Constants */,
 				CCC4ECCA1D07D28000B6EF80 /* Main */,
+				CCDE6D531D111BDF0043C52D /* Room */,
 				CCC4ECD71D07D44600B6EF80 /* Home */,
 			);
 			path = Classes;
@@ -163,6 +176,8 @@
 				CCC4ECD21D07D2E500B6EF80 /* ZQNavigationController.m */,
 				CCC4ECD41D07D3C300B6EF80 /* ZQBaseViewController.h */,
 				CCC4ECD51D07D3C300B6EF80 /* ZQBaseViewController.m */,
+				CCDE6D4A1D10E3BF0043C52D /* ZQLiveViewController.h */,
+				CCDE6D4B1D10E3BF0043C52D /* ZQLiveViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +220,8 @@
 			children = (
 				CC2177831D0F93C0001BA6D4 /* ZQAdModel.h */,
 				CC2177841D0F93C0001BA6D4 /* ZQAdModel.m */,
+				CCDE6D4D1D10EFB10043C52D /* ZQHomeListModel.h */,
+				CCDE6D4E1D10EFB10043C52D /* ZQHomeListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +235,41 @@
 				CC21778E1D0FEF2A001BA6D4 /* ZQFirstSectionHeader.m */,
 				CC2177931D0FF1E9001BA6D4 /* ZQPictureView.h */,
 				CC2177941D0FF1E9001BA6D4 /* ZQPictureView.m */,
+				CCDE6D501D110AA50043C52D /* ZQHomeCell.h */,
+				CCDE6D511D110AA50043C52D /* ZQHomeCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CCDE6D531D111BDF0043C52D /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				CCDE6D541D111BDF0043C52D /* Controller */,
+				CCDE6D551D111BDF0043C52D /* Model */,
+				CCDE6D561D111BDF0043C52D /* View */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		CCDE6D541D111BDF0043C52D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCDE6D571D111BFE0043C52D /* ZQRoomViewController.h */,
+				CCDE6D581D111BFE0043C52D /* ZQRoomViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCDE6D551D111BDF0043C52D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CCDE6D561D111BDF0043C52D /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,11 +411,15 @@
 				CCC4ECDD1D07D45F00B6EF80 /* ZQHomeViewController.m in Sources */,
 				CCC4ECD61D07D3C300B6EF80 /* ZQBaseViewController.m in Sources */,
 				CCC4ECD31D07D2E500B6EF80 /* ZQNavigationController.m in Sources */,
+				CCDE6D521D110AA50043C52D /* ZQHomeCell.m in Sources */,
+				CCDE6D591D111BFE0043C52D /* ZQRoomViewController.m in Sources */,
 				CCC4ECB41D07CC0700B6EF80 /* main.m in Sources */,
 				CC2177951D0FF1E9001BA6D4 /* ZQPictureView.m in Sources */,
 				CC21778F1D0FEF2A001BA6D4 /* ZQFirstSectionHeader.m in Sources */,
 				CC88A83A1D0E94FA00C32490 /* ZQAPI.m in Sources */,
+				CCDE6D4F1D10EFB10043C52D /* ZQHomeListModel.m in Sources */,
 				CC2177891D0FA09D001BA6D4 /* ZQNetworkManager.m in Sources */,
+				CCDE6D4C1D10E3BF0043C52D /* ZQLiveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

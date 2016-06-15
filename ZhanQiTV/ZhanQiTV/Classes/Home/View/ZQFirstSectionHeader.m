@@ -79,7 +79,9 @@
 
 - (void)tapAction:(UITapGestureRecognizer *)gesture {
     ZQPictureView *pictureView = (ZQPictureView *)gesture.view;
-    
+    if ([self.delegate respondsToSelector:@selector(firstSectionHeader:didClickedPictureView:)]) {
+        [self.delegate firstSectionHeader:self didClickedPictureView:pictureView];
+    }
 }
 
 - (void)layoutSubviews {

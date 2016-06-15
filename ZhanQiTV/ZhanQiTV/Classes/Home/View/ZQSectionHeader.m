@@ -9,6 +9,7 @@
 #import "ZQSectionHeader.h"
 #import "ZQConstants.h"
 #import <Masonry.h>
+#import "ZQHomeListModel.h"
 
 @interface ZQSectionHeader ()
 
@@ -59,6 +60,9 @@
     }];
 }
 
-
+- (void)setHomeListModel:(HomeListModel *)homeListModel {
+    _homeListModel = homeListModel;
+    _titleLabel.text = homeListModel.title;
+}
 
 @end
