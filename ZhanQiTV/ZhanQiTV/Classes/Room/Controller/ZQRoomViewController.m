@@ -11,14 +11,14 @@
  */
 
 #import "ZQRoomViewController.h"
-#import <AVFoundation/AVFoundation.h>
 #import "ZQPlayerView.h"
 #import "ZQConstants.h"
+#import "ZQAPI.h"
+#import "ZQHomeListModel.h"
+#import "ZQAdModel.h"
 
 @interface ZQRoomViewController ()
 
-@property (nonatomic, strong) AVPlayer *player;
-@property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) ZQPlayerView *playerView;
 
 @end
@@ -28,7 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self defaultConfig];
-    [self addPlayerView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)defaultConfig {
@@ -36,15 +40,27 @@
     self.navigationController.navigationBar.hidden = YES;
 }
 
-- (void)addPlayerView {
-    _playerView = [[ZQPlayerView alloc] init];
-    _playerView.backgroundColor = [UIColor blackColor];
-    _playerView.frame = CGRectMake(0, kStatusBarH, kScreenW, kScreenW * 9 / 16.0);
-    [self.view addSubview:_playerView];
+- (ZQPlayerView *)playerView {
+    if (!_playerView) {
+        _playerView = [[ZQPlayerView alloc] init];
+        _playerView.frame = CGRectMake(0, 0, kScreenW, kScreenW * 9 / 16.0);
+        [self.view addSubview:_playerView];
+    }
+    return _playerView;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)setList:(List *)list {
+    _list = list;
+    self.playerView.urlString = [NSString stringWithFormat:@"%@%@%@", kHLSBaseUrl, list.videoId, @".m3u8"];
+}
+
+- (void)setRoomModel:(RoomModel *)roomModel {
+    _roomModel = roomModel;
+    self.playerView.urlString = [NSString stringWithFormat:@"%@%@%@", kHLSBaseUrl, roomModel.videoIdKey, @".m3u8"];
 }
 
 @end

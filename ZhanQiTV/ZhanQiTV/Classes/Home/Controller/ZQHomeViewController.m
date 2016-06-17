@@ -17,6 +17,7 @@
 #import "ZQHomeListModel.h"
 #import <MBProgressHUD.h>
 #import "ZQRoomViewController.h"
+#import "ZQPictureView.h"
 
 @interface ZQHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ZQFirstSectionHeaderProtocol>
 
@@ -154,6 +155,8 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     ZQRoomViewController *roomVCtrl = [[ZQRoomViewController alloc] init];
+    ZQHomeCell *cell = (ZQHomeCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    roomVCtrl.list = cell.list;
     [self.navigationController pushViewController:roomVCtrl animated:YES];
 }
 
@@ -161,6 +164,8 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
 
 - (void)firstSectionHeader:(ZQFirstSectionHeader *)firstSectionHeader didClickedPictureView:(ZQPictureView *)pictureView {
     ZQRoomViewController *roomVCtrl = [[ZQRoomViewController alloc] init];
+    AdModel *adModel = pictureView.adModel;
+    roomVCtrl.roomModel = adModel.room;
     [self.navigationController pushViewController:roomVCtrl animated:YES];
 }
 

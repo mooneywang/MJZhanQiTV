@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
 
 @interface ZQPlayerView : UIView
 
-@property (nonatomic, strong) AVPlayer *player;
+/**  播放地址 */
+@property (nonatomic, copy) NSString *urlString;
+
+/**  是否正在播放 */
+@property (nonatomic, assign) BOOL isPlaying;
 
 @end

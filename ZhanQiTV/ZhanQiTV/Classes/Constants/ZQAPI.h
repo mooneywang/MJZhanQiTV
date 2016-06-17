@@ -11,4 +11,5 @@
 
 UIKIT_EXTERN NSString *const kADUrl;
 UIKIT_EXTERN NSString *const kHomeUrl;
+UIKIT_EXTERN NSString *const kHLSBaseUrl;
 
