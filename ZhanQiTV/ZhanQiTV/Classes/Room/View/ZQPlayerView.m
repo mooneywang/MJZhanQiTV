@@ -8,12 +8,16 @@
 
 #import "ZQPlayerView.h"
 #import <AVFoundation/AVFoundation.h>
+#import "ZQPlayerControlView.h"
 
-@interface ZQPlayerView ()
+@interface ZQPlayerView () <ZQPlayerControlViewDelegate>
 
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) AVPlayerItem *playerItem;
+
+/**  播放控制view */
+@property (nonatomic, strong) ZQPlayerControlView *controlView;
 
 @end
 
@@ -28,6 +32,8 @@
 
 - (void)basicConfig {
     _isPlaying = NO;
+    [UIApplication sharedApplication].statusBarHidden = YES;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 - (void)layoutSublayersOfLayer:(CALayer *)layer {
@@ -35,9 +41,14 @@
     self.playerLayer.frame = layer.bounds;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.controlView.frame = self.bounds;
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    _isPlaying = !_isPlaying;
-    NSLog(@"isPlaying:%d",_isPlaying);
+    self.controlView.hidden = !self.controlView.hidden;
+    [UIApplication sharedApplication].statusBarHidden = self.controlView.hidden;
 }
 
 #pragma mark - getter & setter
@@ -64,14 +75,41 @@
     return _playerLayer;
 }
 
+- (ZQPlayerControlView *)controlView {
+    if (!_controlView) {
+        _controlView = [[ZQPlayerControlView alloc] init];
+        _controlView.delegate = self;
+    }
+    return _controlView;
+}
+
 - (void)setUrlString:(NSString *)urlString {
     _urlString = urlString;
-    [self.layer addSublayer:self.playerLayer];
+    
+    [self.layer insertSublayer:self.playerLayer below:self.layer];
     [self.player play];
+    _isPlaying = YES;
+    
+    // 添加控制view
+    [self addSubview:self.controlView];
 }
 
 - (void)dealloc {
     _isPlaying = NO;
+}
+
+#pragma mark - ZQPlayerControlViewDelegate
+
+- (void)playerControlViewDidClickBackButton {
+    if ([self.delegate respondsToSelector:@selector(playerViewDidClickBackButton)]) {
+        [self.delegate playerViewDidClickBackButton];
+    }
+}
+
+- (void)playerControlViewDidClickFullScreenButton:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(playerViewDidClickFullScreenButton:)]) {
+        [self.delegate playerViewDidClickFullScreenButton:sender];
+    }
 }
 
 @end

@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ZQPlayerViewDelegate <NSObject>
+
+@optional
+- (void)playerViewDidClickBackButton;
+- (void)playerViewDidClickFullScreenButton:(UIButton *)sender;
+
+@end
+
 @interface ZQPlayerView : UIView
+
+@property (nonatomic, weak) id<ZQPlayerViewDelegate> delegate;
 
 /**  播放地址 */
 @property (nonatomic, copy) NSString *urlString;
