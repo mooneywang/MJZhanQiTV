@@ -2,7 +2,7 @@
 //  ZQLiveViewController.h
 //  ZhanQiTV
 //
-//  Created by Mengjie.Wang on 2016/06/15.
+//  Created by Mengjie.Wang on 2016/06/17.
 //  Copyright © 2016年 Mooney.Wang. All rights reserved.
 //
 

@@ -81,6 +81,7 @@
             
         }];
     } else { // 小屏
+        [UIApplication sharedApplication].statusBarHidden = NO;
         [UIView animateWithDuration:0.3 animations:^{
             _playerView.layer.transform = _originalTransform;
             _playerView.frame = CGRectMake(0, 0, kScreenW, kScreenW * 9 / 16);
@@ -89,7 +90,6 @@
             
         }];
     }
-    
 }
 
 @end

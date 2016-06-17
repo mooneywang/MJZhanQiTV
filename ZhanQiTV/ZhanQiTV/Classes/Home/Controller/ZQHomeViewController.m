@@ -19,6 +19,7 @@
 #import "ZQRoomViewController.h"
 #import "ZQPictureView.h"
 #import <MJRefresh.h>
+#import "ZQCellConstant.h"
 
 @interface ZQHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ZQFirstSectionHeaderProtocol>
 
@@ -31,10 +32,6 @@
     HomeSuperListModel *_homeSuperListModel;
 }
 
-float const kMinimumLineSpacing = 10;
-float const kMinimumInteritemSpacing = 10;
-float const kCellBaseH = 135;
-float kDeviceFactor = 1.0;
 static NSString *const homeCellId = @"homeCellId";
 static NSString *const homeSectionHeaderId = @"homeSectionHeaderId";
 static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
@@ -43,7 +40,6 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupCollectionView];
     [self getAdModel];
 }

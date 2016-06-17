@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9A826867E7CFA4A9DCD88667 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8F43C532DC4C9B9CACB14E /* libPods.a */; };
+		CC1165E91D13F0900056B0D5 /* ZQLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1165E81D13F0900056B0D5 /* ZQLiveViewController.m */; };
+		CC1165EC1D13F48C0056B0D5 /* ZQCellConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1165EB1D13F48C0056B0D5 /* ZQCellConstant.m */; };
 		CC2177851D0F93C0001BA6D4 /* ZQAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2177841D0F93C0001BA6D4 /* ZQAdModel.m */; };
 		CC2177891D0FA09D001BA6D4 /* ZQNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2177881D0FA09D001BA6D4 /* ZQNetworkManager.m */; };
 		CC21778F1D0FEF2A001BA6D4 /* ZQFirstSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CC21778E1D0FEF2A001BA6D4 /* ZQFirstSectionHeader.m */; };
@@ -23,7 +25,6 @@
 		CCC4ECD31D07D2E500B6EF80 /* ZQNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC4ECD21D07D2E500B6EF80 /* ZQNavigationController.m */; };
 		CCC4ECD61D07D3C300B6EF80 /* ZQBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC4ECD51D07D3C300B6EF80 /* ZQBaseViewController.m */; };
 		CCC4ECDD1D07D45F00B6EF80 /* ZQHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC4ECDC1D07D45F00B6EF80 /* ZQHomeViewController.m */; };
-		CCDE6D4C1D10E3BF0043C52D /* ZQLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6D4B1D10E3BF0043C52D /* ZQLiveViewController.m */; };
 		CCDE6D4F1D10EFB10043C52D /* ZQHomeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6D4E1D10EFB10043C52D /* ZQHomeListModel.m */; };
 		CCDE6D521D110AA50043C52D /* ZQHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6D511D110AA50043C52D /* ZQHomeCell.m */; };
 		CCDE6D591D111BFE0043C52D /* ZQRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6D581D111BFE0043C52D /* ZQRoomViewController.m */; };
@@ -33,6 +34,10 @@
 		2B8F43C532DC4C9B9CACB14E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D6FF1BE7F7DFBE1398E004C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		73E260742C0DCC5B615CB7F3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CC1165E71D13F0900056B0D5 /* ZQLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQLiveViewController.h; sourceTree = "<group>"; };
+		CC1165E81D13F0900056B0D5 /* ZQLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQLiveViewController.m; sourceTree = "<group>"; };
+		CC1165EA1D13F48B0056B0D5 /* ZQCellConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQCellConstant.h; sourceTree = "<group>"; };
+		CC1165EB1D13F48C0056B0D5 /* ZQCellConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQCellConstant.m; sourceTree = "<group>"; };
 		CC2177831D0F93C0001BA6D4 /* ZQAdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAdModel.h; sourceTree = "<group>"; };
 		CC2177841D0F93C0001BA6D4 /* ZQAdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQAdModel.m; sourceTree = "<group>"; };
 		CC2177871D0FA09D001BA6D4 /* ZQNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQNetworkManager.h; sourceTree = "<group>"; };
@@ -63,8 +68,6 @@
 		CCC4ECD51D07D3C300B6EF80 /* ZQBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQBaseViewController.m; sourceTree = "<group>"; };
 		CCC4ECDB1D07D45F00B6EF80 /* ZQHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQHomeViewController.h; sourceTree = "<group>"; };
 		CCC4ECDC1D07D45F00B6EF80 /* ZQHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQHomeViewController.m; sourceTree = "<group>"; };
-		CCDE6D4A1D10E3BF0043C52D /* ZQLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQLiveViewController.h; sourceTree = "<group>"; };
-		CCDE6D4B1D10E3BF0043C52D /* ZQLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQLiveViewController.m; sourceTree = "<group>"; };
 		CCDE6D4D1D10EFB10043C52D /* ZQHomeListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQHomeListModel.h; sourceTree = "<group>"; };
 		CCDE6D4E1D10EFB10043C52D /* ZQHomeListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQHomeListModel.m; sourceTree = "<group>"; };
 		CCDE6D501D110AA50043C52D /* ZQHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQHomeCell.h; sourceTree = "<group>"; };
@@ -101,6 +104,39 @@
 				2B8F43C532DC4C9B9CACB14E /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC1165E31D13F01D0056B0D5 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				CC1165E41D13F01D0056B0D5 /* Controller */,
+				CC1165E51D13F01D0056B0D5 /* Model */,
+				CC1165E61D13F01D0056B0D5 /* View */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		CC1165E41D13F01D0056B0D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC1165E71D13F0900056B0D5 /* ZQLiveViewController.h */,
+				CC1165E81D13F0900056B0D5 /* ZQLiveViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC1165E51D13F01D0056B0D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC1165E61D13F01D0056B0D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CC2177861D0FA065001BA6D4 /* NetworkManager */ = {
@@ -159,6 +195,7 @@
 				CCC4ECCA1D07D28000B6EF80 /* Main */,
 				CCDE6D531D111BDF0043C52D /* Room */,
 				CCC4ECD71D07D44600B6EF80 /* Home */,
+				CC1165E31D13F01D0056B0D5 /* Live */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -182,8 +219,6 @@
 				CCC4ECD21D07D2E500B6EF80 /* ZQNavigationController.m */,
 				CCC4ECD41D07D3C300B6EF80 /* ZQBaseViewController.h */,
 				CCC4ECD51D07D3C300B6EF80 /* ZQBaseViewController.m */,
-				CCDE6D4A1D10E3BF0043C52D /* ZQLiveViewController.h */,
-				CCDE6D4B1D10E3BF0043C52D /* ZQLiveViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -290,6 +325,8 @@
 				CCF97C8E1D0D04FE00BD9DCC /* ZQConstants.h */,
 				CC88A8381D0E94FA00C32490 /* ZQAPI.h */,
 				CC88A8391D0E94FA00C32490 /* ZQAPI.m */,
+				CC1165EA1D13F48B0056B0D5 /* ZQCellConstant.h */,
+				CC1165EB1D13F48C0056B0D5 /* ZQCellConstant.m */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -415,9 +452,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC1165EC1D13F48C0056B0D5 /* ZQCellConstant.m in Sources */,
 				CC88A8371D0E69D600C32490 /* ZQSectionHeader.m in Sources */,
 				CCC4ECB71D07CC0700B6EF80 /* AppDelegate.m in Sources */,
 				CC2177851D0F93C0001BA6D4 /* ZQAdModel.m in Sources */,
+				CC1165E91D13F0900056B0D5 /* ZQLiveViewController.m in Sources */,
 				CCC4ECD01D07D2B200B6EF80 /* ZQTabBarController.m in Sources */,
 				CC3939211D13CAA80038B025 /* ZQPlayerControlView.m in Sources */,
 				CCC4ECDD1D07D45F00B6EF80 /* ZQHomeViewController.m in Sources */,
@@ -432,7 +471,6 @@
 				CC88A83A1D0E94FA00C32490 /* ZQAPI.m in Sources */,
 				CCDE6D4F1D10EFB10043C52D /* ZQHomeListModel.m in Sources */,
 				CC2177891D0FA09D001BA6D4 /* ZQNetworkManager.m in Sources */,
-				CCDE6D4C1D10E3BF0043C52D /* ZQLiveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

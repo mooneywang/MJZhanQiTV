@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kGlobalBackgroundColor;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 @end

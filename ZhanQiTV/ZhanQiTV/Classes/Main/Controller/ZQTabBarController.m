@@ -10,6 +10,7 @@
 #import "ZQNavigationController.h"
 #import "ZQHomeViewController.h"
 #import "ZQBaseViewController.h"
+#import "ZQLiveViewController.h"
 
 @interface ZQTabBarController ()
 
@@ -29,7 +30,7 @@
     [self addChildViewController:homeVCtrl withTitle:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home_sel"];
     
     // 直播
-    ZQBaseViewController *roomVCtrl = [[ZQBaseViewController alloc] init];
+    ZQLiveViewController *roomVCtrl = [[ZQLiveViewController alloc] init];
     [self addChildViewController:roomVCtrl withTitle:@"直播" imageName:@"tabbar_room" selectedImageName:@"tabbar_room_sel"];
     
     // 游戏

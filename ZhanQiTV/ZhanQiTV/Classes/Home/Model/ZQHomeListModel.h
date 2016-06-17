@@ -69,3 +69,7 @@
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, strong) NSArray<HomeListModel> *data;
 @end
+
+@interface LiveModel : JSONModel
+@property (nonatomic, strong) NSArray<List> *rooms;
+@end
