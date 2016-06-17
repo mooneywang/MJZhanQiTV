@@ -18,6 +18,7 @@
 #import <MBProgressHUD.h>
 #import "ZQRoomViewController.h"
 #import "ZQPictureView.h"
+#import <MJRefresh.h>
 
 @interface ZQHomeViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ZQFirstSectionHeaderProtocol>
 
@@ -45,7 +46,6 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupCollectionView];
     [self getAdModel];
-    [self getHomeListModel];
 }
 
 #pragma mark - private methods
@@ -63,9 +63,18 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     [self.view addSubview:_collectionView];
+    // 注册cell
     [_collectionView registerClass:[ZQHomeCell class] forCellWithReuseIdentifier:homeCellId];
     [_collectionView registerClass:[ZQSectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeSectionHeaderId];
     [_collectionView registerClass:[ZQFirstSectionHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:homeFirstSectionHeaderId];
+    
+    // 集成下拉刷新
+    _collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        // 重新获取视频列表
+        [self getHomeListModel];
+    }];
+    // 开始刷新
+    [_collectionView.mj_header beginRefreshing];
 }
 
 - (void)getAdModel {
@@ -94,6 +103,8 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
         if ([_adSuperModel.code intValue] == 0) {
             [_collectionView reloadData];
         }
+        // 结束刷新状态
+        [_collectionView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
@@ -101,6 +112,8 @@ static NSString *const homeFirstSectionHeaderId = @"homeFirstSectionHeaderId";
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
+        // 结束刷新状态
+        [_collectionView.mj_header endRefreshing];
     }];
 }
 
