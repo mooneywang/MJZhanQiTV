@@ -18,6 +18,7 @@
 		CC3939211D13CAA80038B025 /* ZQPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3939201D13CAA80038B025 /* ZQPlayerControlView.m */; };
 		CC88A8371D0E69D600C32490 /* ZQSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88A8361D0E69D600C32490 /* ZQSectionHeader.m */; };
 		CC88A83A1D0E94FA00C32490 /* ZQAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = CC88A8391D0E94FA00C32490 /* ZQAPI.m */; };
+		CCB626FF1D18F356000CCC3F /* ZQGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB626FE1D18F356000CCC3F /* ZQGameViewController.m */; };
 		CCC4ECB41D07CC0700B6EF80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC4ECB31D07CC0700B6EF80 /* main.m */; };
 		CCC4ECB71D07CC0700B6EF80 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC4ECB61D07CC0700B6EF80 /* AppDelegate.m */; };
 		CCC4ECBF1D07CC0700B6EF80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCC4ECBE1D07CC0700B6EF80 /* Assets.xcassets */; };
@@ -54,6 +55,8 @@
 		CC88A8361D0E69D600C32490 /* ZQSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQSectionHeader.m; sourceTree = "<group>"; };
 		CC88A8381D0E94FA00C32490 /* ZQAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAPI.h; sourceTree = "<group>"; };
 		CC88A8391D0E94FA00C32490 /* ZQAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQAPI.m; sourceTree = "<group>"; };
+		CCB626FD1D18F356000CCC3F /* ZQGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQGameViewController.h; sourceTree = "<group>"; };
+		CCB626FE1D18F356000CCC3F /* ZQGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQGameViewController.m; sourceTree = "<group>"; };
 		CCC4ECAF1D07CC0700B6EF80 /* ZhanQiTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhanQiTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCC4ECB31D07CC0700B6EF80 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CCC4ECB51D07CC0700B6EF80 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -148,6 +151,39 @@
 			path = NetworkManager;
 			sourceTree = "<group>";
 		};
+		CCB626F91D18F32D000CCC3F /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				CCB626FA1D18F32D000CCC3F /* Controller */,
+				CCB626FB1D18F32D000CCC3F /* Model */,
+				CCB626FC1D18F32D000CCC3F /* View */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		CCB626FA1D18F32D000CCC3F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCB626FD1D18F356000CCC3F /* ZQGameViewController.h */,
+				CCB626FE1D18F356000CCC3F /* ZQGameViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCB626FB1D18F32D000CCC3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CCB626FC1D18F32D000CCC3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CCC4ECA61D07CC0700B6EF80 = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +232,7 @@
 				CCDE6D531D111BDF0043C52D /* Room */,
 				CCC4ECD71D07D44600B6EF80 /* Home */,
 				CC1165E31D13F01D0056B0D5 /* Live */,
+				CCB626F91D18F32D000CCC3F /* Game */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -457,6 +494,7 @@
 				CCC4ECB71D07CC0700B6EF80 /* AppDelegate.m in Sources */,
 				CC2177851D0F93C0001BA6D4 /* ZQAdModel.m in Sources */,
 				CC1165E91D13F0900056B0D5 /* ZQLiveViewController.m in Sources */,
+				CCB626FF1D18F356000CCC3F /* ZQGameViewController.m in Sources */,
 				CCC4ECD01D07D2B200B6EF80 /* ZQTabBarController.m in Sources */,
 				CC3939211D13CAA80038B025 /* ZQPlayerControlView.m in Sources */,
 				CCC4ECDD1D07D45F00B6EF80 /* ZQHomeViewController.m in Sources */,

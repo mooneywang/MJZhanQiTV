@@ -11,6 +11,7 @@
 #import "ZQHomeViewController.h"
 #import "ZQBaseViewController.h"
 #import "ZQLiveViewController.h"
+#import "ZQGameViewController.h"
 
 @interface ZQTabBarController ()
 
@@ -34,7 +35,7 @@
     [self addChildViewController:roomVCtrl withTitle:@"直播" imageName:@"tabbar_room" selectedImageName:@"tabbar_room_sel"];
     
     // 游戏
-    ZQBaseViewController *gameVCtrl = [[ZQBaseViewController alloc] init];
+    ZQGameViewController *gameVCtrl = [[ZQGameViewController alloc] init];
     [self addChildViewController:gameVCtrl withTitle:@"游戏" imageName:@"tabbar_game" selectedImageName:@"tabbar_game_sel"];
     
     // 我的

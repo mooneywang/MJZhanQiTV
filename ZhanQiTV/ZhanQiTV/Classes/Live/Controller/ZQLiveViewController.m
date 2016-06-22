@@ -62,13 +62,11 @@ static NSString *const liveCellId = @"liveCellId";
     [manager get:kLiveUrl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *data = responseObject[@"data"];
         _liveModel = [[LiveModel alloc] initWithDictionary:data error:nil];
-        NSLog(@"responseObject:%@",_liveModel);
-        
         [_collectionView reloadData];
         [_collectionView.mj_header endRefreshing];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        [_collectionView.mj_header endRefreshing];
     }];
 }
 
